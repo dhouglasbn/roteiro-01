@@ -42,6 +42,7 @@ public class StudentSortingTest {
 		// null
 		// this.implementation = new BubbleSort<Integer>();
 		this.implementation = new InsertionSort<Integer>();
+		// this.implementation = new SelectionSort<Integer>();
 	}
 
 	public void populaVetorTamanhoPar(Integer[] arrayPadrao) {
