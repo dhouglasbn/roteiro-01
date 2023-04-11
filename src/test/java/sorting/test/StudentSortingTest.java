@@ -2,6 +2,7 @@ package sorting.test;
 
 import java.util.Arrays;
 
+
 import sorting.simpleSorting.*;
 
 import org.junit.Assert;
@@ -17,6 +18,8 @@ public class StudentSortingTest {
 	private Integer[] vetorVazio = {};
 	private Integer[] vetorValoresRepetidos;
 	private Integer[] vetorValoresIguais;
+	private Integer[] vetorValoresOrdenado;
+	private Integer[] vetorValoresReverso;
 
 	public AbstractSorting<Integer> implementation;
 
@@ -28,6 +31,8 @@ public class StudentSortingTest {
 				11, 18, 36 });
 		populaVetorRepetido(new Integer[] { 4, 9, 3, 4, 0, 5, 1, 4 });
 		populaVetorIgual(new Integer[] { 6, 6, 6, 6, 6, 6 });
+		populaVetorOrdenado(new Integer[] { 0, 2, 4, 5, 18, 30, 48, 50, 64, 69, 100 });
+		populaVetorReverso(new Integer[] { 30, 28, 17, 15, 14, 12, 10, 4, 2, 1, 0 });
 
 		getImplementation();
 	}
@@ -60,6 +65,16 @@ public class StudentSortingTest {
 
 	public void populaVetorIgual(Integer[] arrayPadrao) {
 		this.vetorValoresIguais = Arrays
+				.copyOf(arrayPadrao, arrayPadrao.length);
+	}
+	
+	public void populaVetorOrdenado(Integer[] arrayPadrao) {
+		this.vetorValoresOrdenado = Arrays
+				.copyOf(arrayPadrao, arrayPadrao.length);
+	}
+	
+	public void populaVetorReverso(Integer[] arrayPadrao) {
+		this.vetorValoresReverso = Arrays
 				.copyOf(arrayPadrao, arrayPadrao.length);
 	}
 
@@ -101,7 +116,17 @@ public class StudentSortingTest {
 	public void testSort05() {
 		genericTest(vetorValoresRepetidos);
 	}
+	
+	@Test
+	public void testSort06() {
+		genericTest(vetorValoresOrdenado);
+	}
 
+	@Test
+	public void testSort07() {
+		genericTest(vetorValoresReverso);
+		
+	}
 	// MÉTODOS QUE OS ALUNOS PODEM CRIAR
 	/**
 	 * O ALUNO PODE IMPLEMENTAR METODOS DE ORDENAÇÃO TESTANDO O SORT COM TRES
